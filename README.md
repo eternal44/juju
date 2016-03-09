@@ -3,13 +3,22 @@
 =====
 ## DB
 
-Create Database (from command line)
+Create local database (from command line)
     createdb juju
 Load Schema (from command line)
     psql juju < server/db/schema.sql
 Start Database Server (locally)
     node server/db/databases.js
 Load MockDataSet
+    psql juju < server/db/mockData.sql
+
+## For production DB commands:
+[heroku](https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-the-add-on)
+Connect to production DB:
+    psql -h ec2-54-227-246-11.compute-1.amazonaws.com -U xdhsmwxwxbezek
+db7ku14gg68rmg
+Reset DB
+     heroku pg:reset DATABASE
 
 ============================================
 ## Testing
@@ -43,8 +52,6 @@ run a specific test
 require('dotenv').config()
 -if you add an api key, add the name of the key variable (but not the key itself) to the dotEnvTemplate file so everyone can see which APIs we are playing with
 -add the api key/secret to the slack channel
- 
-=======
 ## GULP
 
 Run jshint
