@@ -1,23 +1,25 @@
 var CronJob = require('cron').CronJob;
-var seconds = 0;
-// James: I deleted the line below without knowing if it'll break the code
-// var scrapTools.... ?
 
-exports.test = function (){
-  return new CronJob('00 * * * * *' , function () {
-    console.log('Yo its been min');
+module.exports = {
+  itemHistory : function (){
+    new CronJob('00-60 * * * * *' , function () {
+      console.log('tick');
+    },
+    // function to run when job stops
+    function (){
+      console.log('job stopped.  Could be a cron jrob crash');
+    }, true, 'America/Los_Angeles');
   },
-  function (){
-    console.log('called from jobstop');
-  }, true, 'America/Los_Angeles');
-};
 
-exports.min = function () {
-  new CronJob('00 * * * * *', function () {
-    seconds++;
-    console.log('yo its been '+ seconds);
-  },
-  function(){
-    console.log('beep');
-  }, true, 'America/Los_Angeles');
-};
+  test : function () {
+    var seconds = 0;
+    new CronJob('00-60 * * * * *', function () {
+      seconds++;
+      console.log('It\'s been '+ seconds + ' seconds');
+    },
+    function(){
+      console.log('job stopped');
+    }, true, 'America/Los_Angeles');
+  }
+}
+
