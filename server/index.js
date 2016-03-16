@@ -8,8 +8,8 @@ var scrapeTools = require('./scraping.js');
 
 require('./config/middleware.js')(app, express);
 
-cron.test();
-// cron.itemHistory();
+// cron.test();
+cron.itemHistory();
 
 var port = process.env.PORT || 3000;
 

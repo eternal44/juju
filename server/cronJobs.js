@@ -1,10 +1,17 @@
 var CronJob = require('cron').CronJob;
+var request = require('request');
 
 module.exports = {
   itemHistory : function (){
     new CronJob('00-60 * * * * *' , function () {
-      console.log('tick');
+      var allItems = request.get('http://localhost:3000/api/items', function(err, res, body) {
+        console.log(JSON.parse(body)[0]);
+      });
+
+
+      
     },
+
     // function to run when job stops
     function (){
       console.log('job stopped.  Could be a cron jrob crash');
