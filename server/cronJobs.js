@@ -3,13 +3,24 @@ var request = require('request');
 
 module.exports = {
   itemHistory : function (){
+    var allItems;
     new CronJob('00-60 * * * * *' , function () {
-      var allItems = request.get('http://localhost:3000/api/items', function(err, res, body) {
-        console.log(JSON.parse(body)[0]);
+      request.get('http://localhost:3000/api/items', function(err, res, body) {
+        // console.log(JSON.parse(body));
+        allItems = Array.prototype.slice.call(JSON.parse(body));
       });
+      // add promise
+
+      // console.log('look', typeof allItems);
+      // allItems = Array.prototype.slice.call(allItems);
+      console.log(allItems);
 
 
-      
+      // for(var i = 0; i < allItems.length; i++){
+      //   console.log('x', x);
+      //   console.log('y', y);
+      //   console.log('z', z);
+      // };
     },
 
     // function to run when job stops
