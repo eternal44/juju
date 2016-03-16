@@ -1,6 +1,7 @@
 var CronJob = require('cron').CronJob;
 var Promise = require("bluebird");
 var request = Promise.promisifyAll(require("request"));
+var scrapeTool = require('./scraping.js');
 
 module.exports = {
   itemHistory : function (){
@@ -8,12 +9,30 @@ module.exports = {
     new CronJob('00-60 * * * * *' , function () {
       request.getAsync('http://localhost:3000/api/items')
       .then(function(v){
-        // console.log(v.body);
         var items = JSON.parse(v.body);
+        var itemUrlArr = [];
 
         for(var i = 0; i < items.length; i++){
-          console.log('z', items[i].id);
+          itemUrlArr.push(items[i].itemurl);
         };
+
+        return itemUrlArr;
+      })
+      .catch(function(e){
+        console.log('error', e);
+      })
+      .then(function(itemUrlArr){
+
+        // building up req/res parameters to inject in scrape function
+        for(var i = 0; i < itemUrlArr.length; i++){
+          var reqBodyUrl = {
+            body: {
+              url : itemUrlArr[i]
+            }
+          }
+          scrapeTool.scrape(reqBodyUrl);
+        }
+        // console.log(scrapeTool.scrape);
       });
       // // check getAsync's callbacks or use callbacks to handle the async results
       // .then(function(err, res, body) {
