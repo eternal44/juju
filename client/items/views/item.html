@@ -48,39 +48,39 @@
           </script>
           <div class="caption">
             <div class ="row">
-              <div class="col-md-5">
+              <div class="col-md-5 col-xs-5">
                 <h3>{{item.nickname }} </h3>
               </div>
-              <div class="col-md-5">
+              <div class="col-md-5 col-xs-5">
                 <h3 class ="pull-right">{{item.currentprice }}</h3>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-2 col-xs-2">
                 <a class="trash-down fa fa-2x fa-trash"  ng-click="deleteWatched(item, priceReachedData)"></a>
               </div>
             </div>
             <div class ="row">
-              <div class="col-md-6">
+              <div class="col-md-6 col-xs-6">
                 <p>Target price: </p>
               </div>
-              <div class="col-md-4" >
+              <div class="col-md-4 col-xs-4" >
                 <p ng-show="!wantEdit"class ="pull-right">{{item.idealprice}}</p>
                 <input ng-show="wantEdit" type = "text" ng-model= "item.idealprice" class ="form-control">
               </div>
-              <div class="col-md-2 icons" >
+              <div class="col-md-2 icons col-xs-2" >
                 <a class="fa fa-2x fa-pencil" ng-show="!wantEdit" ng-click="wantEdit = !wantEdit" ></a>
                 <a class="fa fa-2x fa-floppy-o" ng-show="wantEdit" ng-click="update(item.id, item); wantEdit = !wantEdit"></a>
               </div>
             </div>
             <div class="row" >
-              <div class="col-md-3">
+              <div class="col-md-3 col-xs-3">
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3 col-xs-3">
                 <a href="{{item.itemurl}}" class="btn btn-primary">Buy Now!</a>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3 col-xs-3">
                 <div class="btn btn-default" ng-click="open(item.nickname)" data-toggle="modal" data-target="#myModal">More Info</div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3 col-xs-3">
               </div>
             </div>
 
@@ -131,39 +131,39 @@
         </script>
         <div class="caption">
           <div class ="row">
-            <div class="col-md-5">
+            <div class="col-md-5 col-xs-5">
               <h3>{{item.nickname }} </h3>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 col-xs-5">
               <h3 class ="pull-right">{{item.currentprice }}</h3>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 col-xs-2">
               <a class="trash-down fa fa-2x fa-trash" ng-click="deleteWatched(item, priceNotReachedData)"></a>
             </div>
           </div>
           <div class ="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-xs-5">
               <p>Target price: </p>
             </div>
-            <div class="col-md-4" >
+            <div class="col-md-4 col-xs-5" >
               <p ng-show="!wantEdit"class ="pull-right">{{item.idealprice}}</p>
               <input ng-show="wantEdit" type = "text" ng-model= "item.idealprice" class ="form-control">
             </div>
-            <div class="col-md-2 icons" >
+            <div class="col-md-2 col-xs-2 icons" >
               <a class="fa fa-2x fa-pencil" ng-show="!wantEdit" ng-click="wantEdit = !wantEdit" ></a>
               <a class="fa fa-2x fa-floppy-o" ng-show="wantEdit" ng-click="update(item.id, item); wantEdit = !wantEdit"></a>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 col-xs-3">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-xs-3">
               <a href="{{item.itemurl}}" class="btn btn-primary">Buy Now!</a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-xs-3">
               <div class="btn btn-default" ng-click="open(item.nickname)" data-toggle="modal" data-target="#myModal">Price History</div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-xs-3">
             </div>
           </div>
         </div>
